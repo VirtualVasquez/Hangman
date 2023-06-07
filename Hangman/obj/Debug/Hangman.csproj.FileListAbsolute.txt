@@ -5,3 +5,10 @@ C:\Users\mvasq\Source\Repos\Hangman\Hangman\Hangman\obj\Debug\Hangman.csproj.Ass
 C:\Users\mvasq\Source\Repos\Hangman\Hangman\Hangman\obj\Debug\Hangman.csproj.CoreCompileInputs.cache
 C:\Users\mvasq\Source\Repos\Hangman\Hangman\Hangman\obj\Debug\Hangman.exe
 C:\Users\mvasq\Source\Repos\Hangman\Hangman\Hangman\obj\Debug\Hangman.pdb
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\obj\Debug\Hangman.csproj.AssemblyReference.cache
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\obj\Debug\Hangman.csproj.CoreCompileInputs.cache
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\obj\Debug\Hangman.exe
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\obj\Debug\Hangman.pdb
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\bin\Debug\Hangman.exe.config
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\bin\Debug\Hangman.exe
+C:\Users\mvasq\Source\Repos\Hangman\Hangman\bin\Debug\Hangman.pdb
