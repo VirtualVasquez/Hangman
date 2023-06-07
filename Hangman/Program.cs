@@ -140,6 +140,73 @@ namespace Hangman
                 Console.WriteLine("");
             }
         }
+        
+        static void Game()
+        {
+
+            var Puzzle = newPuzzle();
+
+            while (Puzzle.guessesLeft != 0)
+            {
+                try
+                {
+                                //assign new word to 'wordToGuess';
+                //must have 5 to 20 letters.
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("That is NOT a letter! Press any key to resume");
+                    Console.ReadLine();
+                    Console.Clear();
+                    continue;
+                }
+            }
+        }
+        class Puzzle
+        {
+            public string wordToSolve = "";
+            public int guessesLeft = 8;
+            public int wrongGuesses = 0; 
+            string[] lettersGuessedWrong = new string[7];
+            List<string> lettersGuessedRight = new List<string>(wordToSolve.Length);
+            public void setWordToSolve()
+            {
+                string[] possibleWords = new string[]
+                {
+                    "stack",
+                    "proxy",
+                    "query",
+                    "object",
+                    "domain",
+                    "memory",
+                    "browser",
+                    "compile",
+                    "website",
+                    "database",
+                    "internet",
+                    "response",
+                    "algorithm",
+                    "hyperlink",
+                    "developer",
+                    "validation",
+                    "attachment",
+                    "defragment",
+                    "programming",
+                    "application",
+                    "compression",
+                    "architecture",
+                    "alphanumeric",
+                    "architecture",
+                    "microcomputer",
+                    "compatability"
+                }
+                //randomly select a word from 'possibleWords' and assign it to 'wordToSolve'
+                //afterwards, run the following
+                    //lettersGuessedRight.Capacity = wordToSolve.Length;
+            }
+
+        }
 
     }
 }
