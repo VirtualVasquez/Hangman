@@ -142,13 +142,14 @@ namespace Hangman
                 Console.WriteLine("");
             }
         }
-
         
         static void Demo()
         {
             var puzzle = new Puzzle();
-            Console.WriteLine("starting the app");
+
+            puzzle.showSpacesAndLetters();
             DisplayGallow(puzzle.gameGallow);
+
             Console.ReadLine();
         }
         
@@ -185,10 +186,10 @@ namespace Hangman
         {
             public string wordToSolve = "";
             public int guessesLeft = 8;
-            public int wrongGuesses = 0; 
+            public int wrongGuesses = 0;
             public string[,] gameGallow;
             public string[] wrongLetters = new string[7];
-            public List<string> rightLetters = new List<string>();
+            public string[] rightLetters;
 
             public Puzzle()
             {
@@ -197,7 +198,7 @@ namespace Hangman
             }
             public void setRightLettersLength()
             {
-                rightLetters.Capacity = wordToSolve.Length;
+                rightLetters = new string[wordToSolve.Length];
             }
             public void setWordToSolve()
             {
@@ -234,6 +235,22 @@ namespace Hangman
                 int randomIndex = random.Next(0, possibleWords.Length);
                 wordToSolve = possibleWords[randomIndex];
                 setRightLettersLength();
+            }
+            public void showSpacesAndLetters()
+            {
+                Console.Write("Your word: ");
+                foreach (char letter in wordToSolve)
+                {
+                    if (rightLetters.Contains(letter.ToString()))
+                    {
+                        Console.Write(letter + " ");
+                    }
+                    else
+                    {
+                        Console.Write("_ ");
+                    }
+                }
+                Console.WriteLine("");
             }
         }
 
