@@ -250,7 +250,8 @@ namespace Hangman
                         Console.Write("_ ");
                     }
                 }
-                Console.WriteLine("");
+                Console.WriteLine(""
+                    );
             }
         }
 
