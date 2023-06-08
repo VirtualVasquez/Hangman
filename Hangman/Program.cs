@@ -10,7 +10,9 @@ namespace Hangman
     {
         static void Main(string[] args)
         {
-            Intro();
+            //Intro();
+            Demo();
+            //Game();
         }
         static void Intro()
         {
@@ -125,7 +127,7 @@ namespace Hangman
 
             return newGallow;
         }
-        static void DisplayGallow(string [,] gallow)
+        static void DisplayGallow(string[,] gallow)
         {
             for (int a = 0; a < gallow.GetLength(0); a++)
             {
@@ -140,18 +142,32 @@ namespace Hangman
                 Console.WriteLine("");
             }
         }
+
         
+        static void Demo()
+        {
+            var puzzle = new Puzzle();
+            Console.WriteLine("starting the app");
+            DisplayGallow(puzzle.gameGallow);
+            Console.ReadLine();
+        }
+        
+        
+        /*
         static void Game()
         {
+            var Puzzle = new Puzzle();
 
-            var Puzzle = newPuzzle();
 
             while (Puzzle.guessesLeft != 0)
             {
                 try
                 {
-                                //assign new word to 'wordToGuess';
-                //must have 5 to 20 letters.
+                    Console.WriteLine("Guesses Remaining = {0} | Wrong Letters Guessed = {1}", Puzzle.guessesLeft, Puzzle.wrongLetters);
+                    Console.WriteLine("");
+
+                    DisplayGallow(Puzzle.gameGallow);
+                    Console.WriteLine("");
                 }
                 catch (FormatException)
                 {
@@ -162,14 +178,27 @@ namespace Hangman
                     continue;
                 }
             }
+
         }
+        */
         class Puzzle
         {
             public string wordToSolve = "";
             public int guessesLeft = 8;
             public int wrongGuesses = 0; 
-            string[] lettersGuessedWrong = new string[7];
-            List<string> lettersGuessedRight = new List<string>(wordToSolve.Length);
+            public string[,] gameGallow;
+            public string[] wrongLetters = new string[7];
+            public List<string> rightLetters = new List<string>();
+
+            public Puzzle()
+            {
+                gameGallow = BaseGallow();
+                setWordToSolve();
+            }
+            public void setRightLettersLength()
+            {
+                rightLetters.Capacity = wordToSolve.Length;
+            }
             public void setWordToSolve()
             {
                 string[] possibleWords = new string[]
@@ -200,12 +229,12 @@ namespace Hangman
                     "architecture",
                     "microcomputer",
                     "compatability"
-                }
-                //randomly select a word from 'possibleWords' and assign it to 'wordToSolve'
-                //afterwards, run the following
-                    //lettersGuessedRight.Capacity = wordToSolve.Length;
+                };
+                Random random = new Random();
+                int randomIndex = random.Next(0, possibleWords.Length);
+                wordToSolve = possibleWords[randomIndex];
+                setRightLettersLength();
             }
-
         }
 
     }
