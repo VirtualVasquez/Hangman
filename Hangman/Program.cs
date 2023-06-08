@@ -145,12 +145,42 @@ namespace Hangman
         
         static void Demo()
         {
+
             var puzzle = new Puzzle();
+            string guessedLetter = "";
             puzzle.showGameStats();
             puzzle.showSpacesAndLetters();
             DisplayGallow(puzzle.gameGallow);
+            Console.WriteLine("");
 
-            Console.ReadLine();
+            
+            Console.WriteLine("Please guess a letter in the puzzle: ");
+
+            // Loop until a valid letter is entered
+            while (true)
+            {
+                guessedLetter = Console.ReadLine();
+
+                // Check if exactly one character is entered
+                if (guessedLetter.Length == 1)
+                {
+                    // Check if the entered character is a letter
+                    if (Char.IsLetter(guessedLetter[0]))
+                    {
+                        // Convert the letter to lowercase
+                        guessedLetter = guessedLetter.ToLower();
+                        break; // Valid input, exit the loop
+                    }
+                }
+
+                Console.Clear();
+                puzzle.showGameStats();
+                puzzle.showSpacesAndLetters();
+                DisplayGallow(puzzle.gameGallow);
+                Console.WriteLine("");
+                Console.WriteLine("Invalid input! Please enter a single letter from the English alphabet:");
+            }
+
         }
         
         
