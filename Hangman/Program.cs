@@ -146,7 +146,7 @@ namespace Hangman
         static void Demo()
         {
             var puzzle = new Puzzle();
-
+            puzzle.showGameStats();
             puzzle.showSpacesAndLetters();
             DisplayGallow(puzzle.gameGallow);
 
@@ -188,7 +188,7 @@ namespace Hangman
             public int guessesLeft = 8;
             public int wrongGuesses = 0;
             public string[,] gameGallow;
-            public string[] wrongLetters = new string[7];
+            public char[] wrongLetters = new char[7];
             public string[] rightLetters;
 
             public Puzzle()
@@ -250,8 +250,29 @@ namespace Hangman
                         Console.Write("_ ");
                     }
                 }
-                Console.WriteLine(""
-                    );
+                Console.WriteLine("");
+                Console.WriteLine("");
+            }
+            public void showGameStats()
+            {
+                Console.WriteLine("Guesses Left = {0}", guessesLeft);
+                Console.WriteLine("");
+                Console.WriteLine("Letters Guessed:");
+
+                if (wrongLetters.Any(letter => letter != '\0'))
+                {
+                    foreach (char letter in wrongLetters)
+                    {
+                        Console.Write(letter + ", ");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("(You haven't made any wrong guesses yet.)");
+                }
+
+                Console.WriteLine("");
+                Console.WriteLine("");
             }
         }
 
