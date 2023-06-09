@@ -181,6 +181,27 @@ namespace Hangman
                 Console.WriteLine("Invalid input! Please enter a single letter from the English alphabet:");
             }
 
+            //check if letter was previously guessed (right or wrong)
+            
+            if (puzzle.IsLetterAlreadyGuessed(guessedLetter))
+            {
+                Console.WriteLine("You've already guessed that letter. Please try again");
+            }
+                //if yes
+                    //clear letterGuessed
+                    //ask for another input
+            //check if letter is in word
+
+                //if yes
+                    //add to rightLetters
+                //if no
+                    //-1 guessesLeft
+                        //if guessesLeft == 0;
+                            //game over
+                    //add letter to wrongLetters
+                    //add limb to gallow
+            //re-render gamestats, spacesAndLetters, and gameGallow.
+                //ask for another input
         }
         
         
@@ -216,7 +237,6 @@ namespace Hangman
         {
             public string wordToSolve = "";
             public int guessesLeft = 8;
-            public int wrongGuesses = 0;
             public string[,] gameGallow;
             public char[] wrongLetters = new char[7];
             public string[] rightLetters;
@@ -304,6 +324,32 @@ namespace Hangman
                 Console.WriteLine("");
                 Console.WriteLine("");
             }
+            
+            public bool IsLetterAlreadyGuessed(string userInput)
+            {
+                char letter = userInput[0];
+                if (wrongLetters.Contains(letter) || rightLetters.Contains(letter.ToString()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            public bool IsLetterInPuzzle(string userInput)
+            {
+                char letter = userInput[0];
+                if (wordToSolve.Contains(letter))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            
         }
 
     }
