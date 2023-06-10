@@ -181,58 +181,73 @@ namespace Hangman
                 Console.WriteLine("Invalid input! Please enter a single letter from the English alphabet:");
             }
 
-            //check if letter was previously guessed (right or wrong)
-            
+            //check if guessedLetter was previously guessed (right or wrong)            
             if (puzzle.IsLetterAlreadyGuessed(guessedLetter))
             {
+                /*
                 Console.WriteLine("You've already guessed that letter. Please try again");
+                Console.ReadLine();
+                Console.Clear();
+                continue;
+                */
             }
-            //if yes
-            //clear letterGuessed
-            //ask for another input
-            //check if letter is in word
 
-            //if yes
-            //add to rightLetters
-            //if no
-            //-1 guessesLeft
-            //if guessesLeft == 0;
-            //game over
-            //add letter to wrongLetters
-            //add limb to gallow
+            //check if guessedLetter is in wordToGuess
+            if (puzzle.IsLetterInPuzzle(guessedLetter))
+            {
+                //if yes
+                    // Find the first occurrence of null in the rightLetters array
+                    int index = Array.IndexOf(puzzle.rightLetters, null);
+
+                    // Assign the new letter to the first null index in rightLetters
+                    if (index != -1)
+                    {
+                        puzzle.rightLetters[index] = guessedLetter;
+                    }
+                    
+                    //check if all needed letters are present in rightletter
+                    int nullCheck = Array.IndexOf(puzzle.rightLetters, null);
+                    
+                    if (nullCheck == -1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Congratulations! You've won!");
+                        Console.ReadLine();
+                        //break;  
+                    }                    
+            }
+            
+            //if guessedLetter is not in wordToGuess
+            else
+            {
+                //-1 guessesLeft
+                puzzle.guessesLeft--;
+
+                //if no more guesses, game over
+                if (puzzle.guessesLeft == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Game Over!");
+                    Console.ReadLine();
+                    Console.Clear();
+                    //break;
+                } 
+
+                //find first occurrence of null in the wrongLetters array.
+                int index = Array.IndexOf(puzzle.wrongLetters, null);
+
+                //Assign the new to the first null index in wrongLetters
+                if (index != -1)
+                {
+                    puzzle.wrongLetters[index] = guessedLetter;
+                }
+                //add limb to gallow
+                //NEED CODE
+            }
+
+
             //re-render gamestats, spacesAndLetters, and gameGallow.
             //ask for another input
         }
-        
-        
-        /*
-        static void Game()
-        {
-            var Puzzle = new Puzzle();
-
-
-            while (Puzzle.guessesLeft != 0)
-            {
-                try
-                {
-                    Console.WriteLine("Guesses Remaining = {0} | Wrong Letters Guessed = {1}", Puzzle.guessesLeft, Puzzle.wrongLetters);
-                    Console.WriteLine("");
-
-                    DisplayGallow(Puzzle.gameGallow);
-                    Console.WriteLine("");
-                }
-                catch (FormatException)
-                {
-                    Console.Clear();
-                    Console.WriteLine("That is NOT a letter! Press any key to resume");
-                    Console.ReadLine();
-                    Console.Clear();
-                    continue;
-                }
-            }
-
-        }
-        */
-
     }
 }

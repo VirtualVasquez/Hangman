@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -7,9 +8,10 @@ namespace Hangman
     public class Puzzle
     {
         public string wordToSolve = "";
+        public HashSet<char> uniqueLetters;
         public int guessesLeft = 8;
         public string[,] gameGallow;
-        public char[] wrongLetters = new char[7];
+        public string[] wrongLetters = new string[7];
         public string[] rightLetters;
 
         public Puzzle()
@@ -67,7 +69,8 @@ namespace Hangman
 
         public void setRightLettersLength()
         {
-            rightLetters = new string[wordToSolve.Length];
+            uniqueLetters = new HashSet<char>(wordToSolve);
+            rightLetters = new string[uniqueLetters.Count];
         }
         public void setWordToSolve()
         {
@@ -128,9 +131,9 @@ namespace Hangman
             Console.WriteLine("");
             Console.WriteLine("Letters Guessed:");
 
-            if (wrongLetters.Any(letter => letter != '\0'))
+            if (wrongLetters.Any(letter => letter != ""))
             {
-                foreach (char letter in wrongLetters)
+                foreach (string letter in wrongLetters)
                 {
                     Console.Write(letter + ", ");
                 }
@@ -147,14 +150,10 @@ namespace Hangman
         public bool IsLetterAlreadyGuessed(string userInput)
         {
             char letter = userInput[0];
-            if (wrongLetters.Contains(letter) || rightLetters.Contains(letter.ToString()))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            bool isLetterInWrongLetters = Array.Exists(wrongLetters, element => element == letter.ToString());
+            bool isLetterInRightLetters = Array.Exists(rightLetters, element => element == letter.ToString());
+
+            return isLetterInWrongLetters || isLetterInRightLetters;
         }
         public bool IsLetterInPuzzle(string userInput)
         {
