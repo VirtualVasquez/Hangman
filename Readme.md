@@ -8,7 +8,7 @@ A C# console-based version of the game Hangman. Ironically, it is not focused on
 
 Instructions on how to play are provided in the console app, but the user can skip them at the beginning if they just want to go straight into the game.
 
-If you want to try the game for yourself without needing an integrated development environment (IDE), you can find run the `.exe` file in this repository at `Battleship\bin\Debug\net5.0\Battleship.exe`.
+If you want to try the game for yourself without needing an integrated development environment (IDE), you can find run the `.exe` file in this repository at `Hangman\Hangman\bin\Debug\Hangman.exe`.
 
 ![Tutorial Screen](/screenshots/tutorial.png)
 
