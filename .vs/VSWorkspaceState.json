@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Hangman"
+    "\\Hangman",
+    "\\Hangman\\Properties"
   ],
-  "SelectedNode": "\\Hangman\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
