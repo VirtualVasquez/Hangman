@@ -16,55 +16,8 @@ namespace Hangman
 
         public Puzzle()
         {
-            gameGallow = BaseGallow();
+            gameGallow = CommonFunctions.BaseGallow();
             setWordToSolve();
-        }
-
-        public string[,] BaseGallow()
-        {
-            string[,] newGallow = new string[7, 7];
-            for (int i = 0; i < 7; i++)
-            {
-                for (int j = 0; j < 7; j++)
-                {
-                    if (i == 0)
-                    {
-                        if (j < 2)
-                        {
-                            newGallow[i, j] = " ";
-                        }
-                        else
-                        {
-                            newGallow[i, j] = "_";
-                        }
-                    }
-                    else if (i == 6)
-                    {
-                        if (j == 6)
-                        {
-                            newGallow[i, j] = "|";
-                        }
-                        else
-                        {
-                            newGallow[i, j] = "_";
-                        }
-                    }
-                    else
-                    {
-                        if (j != 6)
-                        {
-                            newGallow[i, j] = " ";
-                        }
-                        else
-                        {
-                            newGallow[i, j] = "|";
-                        }
-                    }
-
-                }
-            }
-
-            return newGallow;
         }
 
         public void setRightLettersLength()
