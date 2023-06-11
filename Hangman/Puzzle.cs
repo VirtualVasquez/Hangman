@@ -77,7 +77,6 @@ namespace Hangman
             string[] possibleWords = new string[]
             {
                     "stack",
-                    /*
                     "proxy",
                     "query",
                     "object",
@@ -102,8 +101,7 @@ namespace Hangman
                     "alphanumeric",
                     "architecture",
                     "microcomputer",
-                    "compatability"
-                    */
+                    "compatability"                  
             };
             Random random = new Random();
             int randomIndex = random.Next(0, possibleWords.Length);

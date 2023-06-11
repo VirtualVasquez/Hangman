@@ -199,10 +199,9 @@ namespace Hangman
                     
                 }
 
-                //check if guessedLetter is in wordToGuess
+                //if guessedLetter is in wordToGuess
                 if (puzzle.IsLetterInPuzzle(guessedLetter))
                 {
-                    //if yes
                     // Find the first occurrence of null in the rightLetters array
                     int index = Array.IndexOf(puzzle.rightLetters, null);
 
@@ -220,7 +219,7 @@ namespace Hangman
                         Console.Clear();
                         Console.WriteLine("Congratulations! You've won!");
                         Console.ReadLine();
-                        //break;  
+                        break;
                     }
                 }
 
@@ -252,17 +251,10 @@ namespace Hangman
                     puzzle.updateGameGallow();
                 }
 
-                Console.WriteLine("");
-                Console.WriteLine("Press Enter to resume!");
                 guessedLetter = "";
-                Console.ReadLine();
                 Console.Clear();
 
             }
-
-
-            //re-render gamestats, spacesAndLetters, and gameGallow.
-            //ask for another input
         }
     }
 }
