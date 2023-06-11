@@ -155,8 +155,6 @@ namespace Hangman
                 puzzle.showSpacesAndLetters();
                 DisplayGallow(puzzle.gameGallow);
                 Console.WriteLine("");
-
-
                 Console.WriteLine("Please guess a letter in the puzzle: ");
 
                 // Loop until a valid letter is entered
@@ -176,23 +174,29 @@ namespace Hangman
                         }
                     }
 
+                    Console.Clear();                 
+                    Console.WriteLine("Invalid input!");
+                    Console.WriteLine("Please enter a single letter from the English alphabet.");
+                    Console.WriteLine("Press any key to resume");
+                    Console.ReadLine();
                     Console.Clear();
+
                     puzzle.showGameStats();
                     puzzle.showSpacesAndLetters();
                     DisplayGallow(puzzle.gameGallow);
                     Console.WriteLine("");
-                    Console.WriteLine("Invalid input! Please enter a single letter from the English alphabet:");
+                    Console.WriteLine("Please guess a letter in the puzzle: ");
                 }
 
                 //check if guessedLetter was previously guessed (right or wrong)            
                 if (puzzle.IsLetterAlreadyGuessed(guessedLetter))
                 {
-                    /*
+                    Console.Clear();
                     Console.WriteLine("You've already guessed that letter. Please try again");
                     Console.ReadLine();
                     Console.Clear();
                     continue;
-                    */
+                    
                 }
 
                 //check if guessedLetter is in wordToGuess
@@ -248,6 +252,7 @@ namespace Hangman
                     puzzle.updateGameGallow();
                 }
 
+                Console.WriteLine("");
                 Console.WriteLine("Press Enter to resume!");
                 guessedLetter = "";
                 Console.ReadLine();
