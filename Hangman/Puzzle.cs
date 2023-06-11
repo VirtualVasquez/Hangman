@@ -131,11 +131,11 @@ namespace Hangman
             Console.WriteLine("");
             Console.WriteLine("Letters Guessed:");
 
-            if (wrongLetters.Any(letter => letter != ""))
+            if (wrongLetters.Any(letter => letter != null))
             {
                 foreach (string letter in wrongLetters)
                 {
-                    Console.Write(letter + ", ");
+                    Console.Write(letter + " ");
                 }
             }
             else
@@ -166,6 +166,44 @@ namespace Hangman
             {
                 return false;
             }
+        }
+        
+        public void updateGameGallow()
+        {
+            switch (guessesLeft)
+            {
+                case 7:
+                    gameGallow[1, 2] = "|";
+                    break;
+                case 6:
+                    gameGallow[2, 2] = "O";
+                    break;
+                case 5:
+                    gameGallow[3, 1] = "/";
+                    break;
+                case 4:
+                    gameGallow[3, 2] = "|";
+                    break;
+                case 3:
+                    gameGallow[3, 3] = "\\";
+                    break;
+                case 2:
+                    gameGallow[4, 1] = "/";
+                    break;
+                case 1:
+                    gameGallow[4, 3] = "\\";
+                    break;               
+            }
+        }
+        public void testUpdate()
+        {
+            gameGallow[1, 2] = "|";
+            gameGallow[2, 2] = "O";
+            gameGallow[3, 1] = "/";
+            gameGallow[3, 2] = "|";
+            gameGallow[3, 3] = "\\";
+            gameGallow[4, 1] = "/";
+            gameGallow[4, 3] = "\\";
         }
 
     }

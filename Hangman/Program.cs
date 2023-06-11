@@ -242,7 +242,7 @@ namespace Hangman
                     puzzle.wrongLetters[index] = guessedLetter;
                 }
                 //add limb to gallow
-                //NEED CODE
+                puzzle.updateGameGallow();
             }
 
 
