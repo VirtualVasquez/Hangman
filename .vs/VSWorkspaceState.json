@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Hangman",
+    "\\Hangman\\bin",
+    "\\Hangman\\bin\\Debug",
     "\\Hangman\\Properties"
   ],
+  "SelectedNode": "\\Readme.md",
   "PreviewInSolutionExplorer": false
 }
